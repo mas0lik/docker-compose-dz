@@ -3,13 +3,13 @@ services:
   package:
     build:
       context: ./package
-      dockerfile: Dockerfile-package
+      dockerfile: Dockerfile
     volumes:
       - app-volume:/home/pkhramchenkov/boxfuse-sample-java-war-hello/target/
   prod:
     build:
       context: ./prod
-      dockerfile: Dockerfile-prod
+      dockerfile: Dockerfile
     depends_on:
       - package
     ports:
