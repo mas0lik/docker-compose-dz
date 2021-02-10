@@ -1,6 +1,6 @@
-FROM adoptopenjdk/openjdk11:alpine
-RUN apt-get update
-RUN apt-get install wget -y
+FROM adoptopenjdk/openjdk11:alpine-slim
+RUN apk update
+RUN apk add wget -y
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir -p "$CATALINA_HOME"
