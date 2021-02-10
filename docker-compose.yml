@@ -1,9 +1,9 @@
 version: '3'
 services:
-  build:
+  package:
     build:
-      context: ./build
-      dockerfile: Dockerfile-build
+      context: ./package
+      dockerfile: Dockerfile-package
     volumes:
       - app-volume:/home/pkhramchenkov/boxfuse-sample-java-war-hello/target/
   prod:
