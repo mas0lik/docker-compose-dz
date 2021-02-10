@@ -1,0 +1,19 @@
+version: '3'
+services:
+  build:
+    context: ./build
+      dockerfile: Dockerfile-build
+    volumes:
+      - app-volume:/home/pkhramchenkov/boxfuse-sample-java-war-hello/target/
+  prod:
+    build:
+      context: ./prod
+        dockerfile: Dockerfile-prod
+    depends_on:
+      - build
+    ports:
+      - "8080:8080"
+    volumes:
+      - app-volume:/usr/local/tomcat/webapps/
+volumes:
+  app-volume:
